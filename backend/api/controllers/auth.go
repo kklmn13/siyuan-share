@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"os"
 	"time"
-
+	"strconv"
 	"github.com/ZeroHawkeye/siyuan-share-api/models"
 	"github.com/gin-gonic/gin"
 	jwt "github.com/golang-jwt/jwt/v5"
@@ -21,6 +21,17 @@ type RegisterRequest struct {
 
 // Register 用户注册
 func Register(c *gin.Context) {
+	//注册禁用处理
+	disableRegisterStr := os.Getenv("APP_DISABLE_REGISTER")
+	disableRegister, err := strconv.ParseBool(disableRegisterStr)
+	if err != nil {
+		disableRegister = false
+	}
+	if disableRegister {
+		c.JSON(http.StatusForbidden, gin.H{"code": 1, "msg": "注册功能已被禁用."})
+		return
+	}
+
 	var req RegisterRequest
 	if err := c.ShouldBindJSON(&req); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"code": 1, "msg": "Invalid request: " + err.Error()})

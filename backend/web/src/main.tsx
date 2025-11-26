@@ -4,7 +4,6 @@ import zhCN from "antd/locale/zh_CN";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App.tsx";
-import "./index.css";
 
 // 检测暗黑模式
 const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;

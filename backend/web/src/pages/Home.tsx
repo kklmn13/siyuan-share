@@ -228,25 +228,27 @@ function Home() {
       <div className="home-header">
         <Title level={2} style={{ margin: 0, fontSize: 28, fontWeight: 600 }}>
           <ApiOutlined style={{ marginRight: 12, color: '#1890ff' }} />
-          思源分享服务
+          青色の文档分享服务
         </Title>
         <Paragraph type="secondary" style={{ margin: '8px 0 0 0', fontSize: 15 }}>
-          安全、高效的笔记分享平台
+          安全、高效的分享平台
         </Paragraph>
       </div>
 
       <Card className="home-card" bordered={false}>
-        <Tabs activeKey={activeTab} onChange={setActiveTab} items={sessionUser ? tabItems.filter(item => item.key === 'status') : tabItems} size="large" />
+        <Tabs activeKey={activeTab} onChange={setActiveTab} items={sessionUser ? tabItems.filter((item) => item.key === 'status') : tabItems} size="large" />
       </Card>
 
       <Card className="usage-card" bordered={false} style={{ marginTop: 24 }}>
-        <Title level={4} style={{ marginBottom: 16 }}>使用说明</Title>
+        <Title level={4} style={{ marginBottom: 16 }}>
+          使用说明
+        </Title>
         <Space direction="vertical" size="small" style={{ width: '100%' }}>
           <Paragraph style={{ margin: 0 }}>
             <Text strong>访问分享：</Text> <Text code>/s/&lt;shareId&gt;</Text>
           </Paragraph>
           <Paragraph style={{ margin: 0 }}>
-            <Text strong>API Token：</Text> 登录后前往仪表盘创建（供思源插件使用）
+            <Text strong>API Token：</Text> 登录后前往仪表盘创建
           </Paragraph>
         </Space>
       </Card>

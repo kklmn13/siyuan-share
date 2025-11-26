@@ -9,6 +9,7 @@ WORKDIR /app/web
 # 【路径调整】现在必须以 'backend/' 开头 (相对于根目录的 Context)
 COPY backend/web/package.json .
 COPY backend/web/package-lock.json .
+RUN rm -f package-lock.json && rm -rf node_modules && npm install --omit=dev --legacy-peer-deps
 
 # 安装依赖
 RUN npm install

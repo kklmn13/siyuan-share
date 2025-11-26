@@ -100,7 +100,7 @@ function cleanIALAttributes(content: string): string {
 function convertBlockReferences(content: string, preserveRefs?: boolean): string {
     // 匹配块引用: ((id)) 或 ((id "text"))
     // 块 ID 格式: 20位字符串，yyyyMMddHHmmss-7位字符
-    const blockRefPattern = /\(\(([0-9]{14,}-[0-9a-z]{7,})(?:\s+"([^"]+)")?\)\)/g;
+    const blockRefPattern = /\(\(([0-9]{14,}-[0-9a-z]{7,})(?:\s+([\\'"])([^\\"]+?)\1)?\)\)/g
     
     return content.replace(blockRefPattern, (match, blockId, displayText) => {
         if (displayText) {

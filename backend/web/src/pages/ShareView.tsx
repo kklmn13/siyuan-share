@@ -437,7 +437,7 @@ function ShareView() {
             </div>
 
             <div className="share-footer">
-              <Text type="secondary">由思源笔记分享插件提供支持</Text>
+              <Text type="secondary">由青色提供支持</Text>
             </div>
           </Content>
         </Layout>
